@@ -1,2 +1,5 @@
 ---
 # defaults file for cvmfs-server
+cvmfs_packages:
+  - cvmfs
+  - cvmfs_server

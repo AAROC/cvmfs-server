@@ -1,0 +1,5 @@
+---
+# install tasks for  CEntOS
+- name: CVMFS server  installed
+  package: "{{ item }}"
+  with_items: "{{ cvmfs_packages}}"
