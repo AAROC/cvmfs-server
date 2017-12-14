@@ -1,0 +1,3 @@
+---
+# tasks file for cvmfs-server
+- include: "install-{{ ansible_os_family | lower }}.yml"
