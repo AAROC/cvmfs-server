@@ -20,7 +20,7 @@
   when: repo_present.changed
 
 - name: CVMFS server  installed
-  package: 
+  package:
     name: "{{ item }}"
     state: present
   with_items: "{{ cvmfs_packages}}"
