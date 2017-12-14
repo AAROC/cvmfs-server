@@ -1,2 +1,26 @@
 ---
 #  install tasks for debian
+- name: Trust the APT repository
+  apt_key:
+    url: http://cvmrepo.web.cern.ch/cvmrepo/apt/cernvm.gpg
+    state: present
+
+- name: Ensure repo release present
+  apt:
+    deb: "{{ release[ ansible_os_family | lower ]}}"
+    state: present
+    update_cache: true
+  register: repo_present
+
+- name: Update cache
+  package:
+    name: '*'
+    state: latest
+    update_cache: true
+  when: repo_present.changed
+
+- name: CVMFS server  installed
+  package: 
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ cvmfs_packages}}"
