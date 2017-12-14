@@ -1,5 +1,13 @@
 ---
 # defaults file for cvmfs-server
+prerequisites:
+  redhat: []
+  debian:
+    - lsb-release
+release:
+  debian: 'https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest_all.deb'
+
 cvmfs_packages:
   - cvmfs
-  - cvmfs_server
+  - cvmfs-server
+  - cvmfs-config-default
