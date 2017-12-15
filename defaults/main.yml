@@ -1,12 +1,21 @@
 ---
 # defaults file for cvmfs-server
+
+# Packages that are required for the role.
 prerequisites:
   redhat: []
   debian:
     - lsb-release
+
+# Debian has a release file which installs the correct repo
+# packages. We set this variable here, even though it will
+# likely never be changed and there is no corresponding
+# variable for RedHat.
 release:
   debian: 'https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest_all.deb'
 
+# The packages that are necessary for the CVMFS server.
+# See http://cvmfs.readthedocs.io/en/stable/cpt-repo.html#installation
 cvmfs_packages:
   - cvmfs
   - cvmfs-server
