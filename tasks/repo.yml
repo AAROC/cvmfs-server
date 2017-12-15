@@ -1,2 +1,11 @@
 ---
 # Tasks for CVMFS repo
+
+# this is probably as far as one can go with a container.
+- name: Get list of existing repos
+  command: cvmfs_server list
+  changed_when: false
+  register: cvmfs_repos
+
+- debug:
+    var: cvmfs_repos
