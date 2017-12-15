@@ -1,3 +1,4 @@
 .molecule
 .vscode
 __pycache__/
+.cache/
