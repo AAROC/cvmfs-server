@@ -1,2 +1,15 @@
 ---
 #  install tasks for debian
+
+- name: Ensure repo release present
+  apt:
+    deb: "{{ release[ ansible_os_family | lower ]}}"
+    state: present
+  register: repo_present
+
+- name: CVMFS packages
+  package:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items: "{{ cvmfs_packages}}"

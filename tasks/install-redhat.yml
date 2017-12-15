@@ -1,0 +1,30 @@
+---
+# install tasks for  CEntOS
+- name: Ensure EPEL
+  package:
+    name: epel-release
+    state: present
+
+- name: Ensure CVMFS repo is present
+  get_url:
+    url: https://cvmrepo.web.cern.ch/cvmrepo/yum/cernvm.repo
+    dest: /etc/yum.repos.d/cernvm.repo
+  register: repo_present
+
+- name: Ensure GPG keys
+  rpm_key:
+    key: http://cvmrepo.web.cern.ch/cvmrepo/yum/RPM-GPG-KEY-CernVM
+    state: present
+
+- name: Update Yum cache
+  yum:
+    name: '*'
+    state: latest
+    update_cache: true
+  when: repo_present.changed
+
+- name: CVMFS server  installed
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ cvmfs_packages}}"

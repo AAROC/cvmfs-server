@@ -1,0 +1,21 @@
+---
+language: python
+python:
+  - '2.7'
+  - pypy
+sudo: true
+services:
+  - docker
+addons: []
+before_install:
+  - pip install docker
+  - pip install molecule
+install: []
+after_install: []
+before_script: []
+script:
+  - molecule test
+after_script:
+notifications:
+  slack:
+    secure: AWj5khG86fhxUvBksvT/A4vN7J2jRdU9Cgs5omoHqDLL0aOpnlz5xiNH53d0VDJRvfdLIUrlhygEJ7diebfySieNeg8b010dd9dFRf/DHrjdQ+l8bn1pvuuQZgwGtNKbhd0W3rspDm4wyXTC81o2m/ClNd2Xi7P8SqX5FP5SNnjo1xw4qUxbOwOF435bYF56kDAqsmsXGzMEceYrx12dfhmag6MbFYBXP2c7gZELn6CbjAq7S1DZY6CFa2wR1kYMUZUoP6om2CLUfFZ54S/DsQx7/KNQ1gjixmW3fkMf3qMm2VTGupDZicv5uYySiUTba4bf3IE1PKKGAbfRLeggHikHX8Qj8nMzVO5U1a4q5tb9W/Xp2McKTgPNahzA8gTiRgaeQwa14me2QNomZEKh1pL8Btlb5q7/SV1FanH9NTE2CEi42LKU7uE0evmTgZjs9rciss9YXJpfftW41O9R9YBwMrRVzG3wXJbMO8CDd9DmUXsHzTPLf7KoMeZVevNJJEUs6ZfIkjRPusMrjwFMr1W7urPr7a95y2+JElWets2iSzTeUZIvNV8pXiwFF5zDLWYU2BokmZiXdHDNzejvj2ERfUL7t8aFL2aMFAEHnAxAtexESXrcAOV8zKP+FzFELr2LxOKGJlwra8cWQlcTeYthEiV7HFIvLQygavRWQhk=
