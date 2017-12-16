@@ -17,7 +17,7 @@ galaxy_info:
         - artful
 
   galaxy_tags:
-    - data_infrastructure
+    - data
     - cvmfs
     - cdn
   # List tags for your role here, one per line. A tag is a keyword that describes
